@@ -1,0 +1,71 @@
+questions:
+  - variable: wordpressBlogName
+    label: "Nombre del Blog"
+    description: "Introduce el nombre de tu blog WordPress."
+    type: string
+    required: true
+    default: "Mi Blog WordPress"
+    group: "Configuración de WordPress"
+
+  - variable: wordpressUsername
+    label: "Usuario de WordPress"
+    description: "El nombre de usuario para acceder a tu WordPress."
+    type: string
+    required: true
+    default: "admin"
+    group: "Configuración de WordPress"
+
+  - variable: wordpressPassword
+    label: "Contraseña de WordPress"
+    description: "La contraseña para el usuario de WordPress."
+    type: password
+    required: true
+    group: "Configuración de WordPress"
+
+  - variable: wordpressEmail
+    label: "Email del Administrador de WordPress"
+    description: "Email del administrador de WordPress."
+    type: string
+    required: true
+    group: "Configuración de WordPress"
+
+  - variable: ingress.hostname
+    label: "Hostname del Ingress"
+    description: "El hostname para acceder a tu WordPress."
+    type: string
+    required: true
+    group: "Configuración de Ingress"
+
+  - variable: autoscaling.enabled
+    label: "Habilitar Autoescalado"
+    description: "Habilita el autoescalado para la instancia de WordPress."
+    type: boolean
+    required: false
+    default: false
+    group: "Configuración de Autoescalado"
+    show_subquestion_if: true
+    subquestions:
+      - variable: autoscaling.minReplicas
+        label: "Mínimo de Réplicas"
+        description: "Número mínimo de réplicas cuando el autoescalado está habilitado."
+        type: int
+        required: true
+        default: 1
+      - variable: autoscaling.maxReplicas
+        label: "Máximo de Réplicas"
+        description: "Número máximo de réplicas cuando el autoescalado está habilitado."
+        type: int
+        required: true
+        default: 3
+      - variable: autoscaling.targetCPU
+        label: "Uso objetivo de CPU (%)"
+        description: "El porcentaje objetivo de uso de CPU para activar el autoescalado."
+        type: int
+        required: false
+        default: 80
+      - variable: autoscaling.targetMemory
+        label: "Uso objetivo de Memoria (%)"
+        description: "El porcentaje objetivo de uso de memoria para activar el autoescalado."
+        type: int
+        required: false
+        default: 80
