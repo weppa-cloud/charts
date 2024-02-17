@@ -1232,3 +1232,9 @@ externalCache:
   ## @param externalCache.port External cache server port
   ##
   port: 11211
+
+## phpmyadmin
+  phpMyAdmin:
+  enabled: true
+  db:
+    
