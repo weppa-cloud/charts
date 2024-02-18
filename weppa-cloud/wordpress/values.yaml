@@ -1234,7 +1234,10 @@ externalCache:
   port: 11211
 
 ## phpmyadmin
-  phpMyAdmin:
+phpMyAdmin:
   enabled: true
   db:
-    
+    host: "{{ .Release.Name }}-mariadb"
+    port: 3306
+    username: "{{ .Values.mariadb.auth.username }}"
+    password: "{{ .Values.mariadb.auth.password }}"
