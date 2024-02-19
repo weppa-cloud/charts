@@ -1236,8 +1236,21 @@ externalCache:
 ## phpmyadmin
 phpMyAdmin:
   enabled: true
-  db:
-    host: "{{ .Release.Name }}-mariadb"
-    port: 3306
-    username: "{{ .Values.mariadb.auth.username }}"
+  ## @param phpMyAdmin.auth.existing Secret with MySQL credentials
+  ## NOTE: it will override phpMyAdmin.auth.username, phpMyAdmin.auth.password, phpMyAdmin.auth.database
+  ##
+  auth:
+    existing: false
+    username: bn_wordpress
     password: "{{ .Values.mariadb.auth.password }}"
+    database: bitnami_wordpress
+  ## @param phpMyAdmin.hostAliases Aliases that allow the container to access the database server
+  ##
+  hostAliases:
+    - ip: "{{ include \"mariadb.primary.address\" . }}"
+      hostnames:
+        - "mariadb"
+  ## @param phpMyAdmin.serviceAccount.create Create a serviceAccount for phpMyAdmin
+  ##
+  serviceAccount:
+    create: true
