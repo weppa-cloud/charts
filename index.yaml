@@ -13,7 +13,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.4.3
-    created: "2024-02-18T17:58:19.358403-05:00"
+    created: "2024-02-19T18:50:56.755504-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -56,4 +56,4 @@ entries:
     urls:
     - weppa-cloud/wordpress-19.2.6.tgz
     version: 19.2.6
-generated: "2024-02-18T17:58:19.347647-05:00"
+generated: "2024-02-19T18:50:56.744218-05:00"
