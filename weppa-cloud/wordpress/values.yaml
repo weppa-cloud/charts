@@ -1234,23 +1234,15 @@ externalCache:
   port: 11211
 
 ## phpmyadmin
-phpMyAdmin:
-  enabled: true
-  ## @param phpMyAdmin.auth.existing Secret with MySQL credentials
-  ## NOTE: it will override phpMyAdmin.auth.username, phpMyAdmin.auth.password, phpMyAdmin.auth.database
-  ##
-  auth:
-    existing: false
-    username: bn_wordpress
-    password: "{{ .Values.mariadb.auth.password }}"
-    database: bitnami_wordpress
-  ## @param phpMyAdmin.hostAliases Aliases that allow the container to access the database server
-  ##
-  hostAliases:
-    - ip: "{{ include \"mariadb.primary.address\" . }}"
-      hostnames:
-        - "mariadb"
-  ## @param phpMyAdmin.serviceAccount.create Create a serviceAccount for phpMyAdmin
-  ##
-  serviceAccount:
-    create: true
+phpmyadmin:
+  extraVolumeMounts:
+    - name: config
+      mountPath: /bitnami/phpmyadmin/conf/config.inc.php
+      subPath: config.inc.php
+  extraVolumes:
+    - name: config
+      configMap:
+        name: phpmyadmin-config # Asegúrate de que este sea el nombre correcto del ConfigMap
+        items:
+        - key: config.inc.php
+          path: config.inc.php

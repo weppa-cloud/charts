@@ -1,0 +1,17 @@
+# templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "phpmyadmin.fullname" . }}
+  labels:
+    {{- include "phpmyadmin.labels" . | nindent 4 }}
+data:
+  config.inc.php: |-
+    <?php
+    $cfg['Servers'][1]['host'] = getenv('PMA_HOST');
+    $cfg['Servers'][1]['port'] = getenv('PMA_PORT');
+    $cfg['Servers'][1]['user'] = getenv('PMA_USER');
+    $cfg['Servers'][1]['password'] = getenv('PMA_PASSWORD');
+    $cfg['Servers'][1]['auth_type'] = 'config';
+    $cfg['PmaAbsoluteUri'] = getenv('PMA_ABSOLUTE_URI');
+    ?>
