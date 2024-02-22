@@ -1240,7 +1240,7 @@ phpmyadmin:
       mountPath: /bitnami/phpmyadmin/conf/config.inc.php
       subPath: config.inc.php
   extraVolumes:
-    - name: config
+    - name: phpmyadmin-config
       configMap:
         name: phpmyadmin-config # Asegúrate de que este sea el nombre correcto del ConfigMap
         items:
