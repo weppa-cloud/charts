@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: phpmyadmin-config1
   labels:
-   phpmyadmin-config1label
+   app: phpmyadmincd
 data:
   config.inc.php: |-
     <?php
