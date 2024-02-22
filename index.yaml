@@ -13,7 +13,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.4.3
-    created: "2024-02-22T10:20:35.430195-05:00"
+    created: "2024-02-22T10:26:50.348921-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -36,7 +36,7 @@ entries:
     description: WordPress is the world's most popular blogging and content management
       platform. Powerful yet simple, everyone from students to global corporations
       use it to build beautiful, functional websites.
-    digest: 340b0d8e5b61213ab4d08b51518a3d87e461592c24e57328bad9c31896fe0a18
+    digest: 606f9741e1a0752833ea2fc8ffb88a4c673c9d474977f278b2c4481d0595b8a5
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
     keywords:
@@ -56,4 +56,4 @@ entries:
     urls:
     - weppa-cloud/wordpress-19.2.6.tgz
     version: 19.2.6
-generated: "2024-02-22T10:20:35.418848-05:00"
+generated: "2024-02-22T10:26:50.339319-05:00"
