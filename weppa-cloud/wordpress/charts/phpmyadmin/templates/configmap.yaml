@@ -8,7 +8,7 @@ data:
   config.inc.php: |-
     <?php
     /* Configuración de phpMyAdmin */
-    $cfg['blowfish_secret'] = 'your_blowfish_secret_here'; // Cambia esto por un valor seguro
+    $cfg['blowfish_secret'] = 'your_blowfish_secret_here'; 
     $cfg['Servers'][1]['host'] = '{{ template "wordpress.databaseHost" . }}';
     $cfg['Servers'][1]['port'] = '{{ template "wordpress.databasePort" . }}';
     $cfg['Servers'][1]['user'] = '{{ template "wordpress.databaseUser" . }}';
