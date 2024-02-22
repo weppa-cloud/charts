@@ -7,14 +7,11 @@ metadata:
 data:
   config.inc.php: |-
     <?php
-    /* Servers configuration */
-    $i = 1;
-
-    /* First server */
-    $cfg['Servers'][$i]['host'] = '{{ include "phpmyadmin.db.host" . }}';
-    $cfg['Servers'][$i]['port'] = '{{ .Values.db.port }}';
-    $cfg['Servers'][$i]['user'] = '{{ include "phpmyadmin.db.user" . }}';
-    $cfg['Servers'][$i]['password'] = '{{ include "phpmyadmin.db.password" . }}';
-    $cfg['Servers'][$i]['auth_type'] = 'config';
-    $cfg['PmaAbsoluteUri'] = '{{ include "phpmyadmin.pmaAbsoluteUri" . }}';
+    /* Configuración de phpMyAdmin */
+    $cfg['blowfish_secret'] = 'your_blowfish_secret_here'; // Cambia esto por un valor seguro
+    $cfg['Servers'][1]['host'] = '{{ template "wordpress.databaseHost" . }}';
+    $cfg['Servers'][1]['port'] = '{{ template "wordpress.databasePort" . }}';
+    $cfg['Servers'][1]['user'] = '{{ template "wordpress.databaseUser" . }}';
+    $cfg['Servers'][1]['password'] = '{{ template "wordpress.databasePassword" . }}'; // Asegúrate de tener este helper o un valor adecuado
+    $cfg['Servers'][1]['auth_type'] = 'cookie';
     ?>
