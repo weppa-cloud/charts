@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: phpmyadmin-config1
   labels:
-    {{- include "phpmyadmin.labels" . | nindent 4 }}
+   phpmyadmin-config1label
 data:
   config.inc.php: |-
     <?php
