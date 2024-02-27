@@ -5,16 +5,4 @@ metadata:
 data:
   config.php: |
     <?php
-    $use_auth = {{ .Values.auth.useAuth }};
-    $auth_users = array(
-      '{{ .Values.auth.user.name }}' => '{{ .Values.auth.user.passwordHash }}',
-    );
-    $readonly_users = array(
-      {{- range .Values.auth.readonlyUsers }}
-      '{{ . }}',
-      {{- end }}
-    );
-    $directories_users = array(
-      '{{ .Values.auth.user.name }}' => '{{ .Values.auth.directoriesUsers.user }}',
-    );
-    ?>
+   $use_auth = false; ?>

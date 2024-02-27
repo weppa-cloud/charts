@@ -9,15 +9,5 @@ service:
   type: ClusterIP
   port: 80
 
-auth:
-  useAuth: true
-  user:
-    name: "user"
-    passwordHash: "$2y$10$M2J5yKDZWKoilQt.osJs.OHAyTqa6GyROVCyelej2UBiiTbDWqWM2"
-  readonlyUsers:
-    - "user"
-  directoriesUsers:
-    user: "root"
-
 pvc:
   name: tinyfilemanager-pvc
