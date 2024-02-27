@@ -11,16 +11,20 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}-tinyfilemanager
-spec:
-  containers:
-  - name: tinyfilemanager
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        volumeMounts:
-            - name: storage-volume
-              mountPath: /var/www/html # Asegúrate de que esta ruta sea correcta para tu uso
+    spec:
+      containers:
+        - name: tinyfilemanager
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /var/www/html/config.php
+              subPath: config.php
       volumes:
+        - name: config-volume
+          configMap:
+            name: tinyfilemanager-config
         - name: storage-volume
           persistentVolumeClaim:
-            claimName: tinyfilemanager-pvc
+            claimName: {{ .Values.pvc.name }}
 
             
