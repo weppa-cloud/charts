@@ -1232,17 +1232,3 @@ externalCache:
   ## @param externalCache.port External cache server port
   ##
   port: 11211
-
-## phpmyadmin
-phpmyadmin:
-  extraVolumeMounts:
-    - name: config
-      mountPath: /bitnami/phpmyadmin/conf/config.inc.php
-      subPath: config.inc.php
-  extraVolumes:
-    - name: phpmyadmin-config
-      configMap:
-        name: phpmyadmin-config # Asegúrate de que este sea el nombre correcto del ConfigMap
-        items:
-        - key: config.inc.php
-          path: config.inc.php
