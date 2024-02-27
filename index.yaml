@@ -3,9 +3,9 @@ entries:
   tinyfilemanager:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-02-27T17:08:57.331902-05:00"
+    created: "2024-02-27T17:17:44.586813-05:00"
     description: A Helm chart for Kubernetes to deploy TinyFileManager
-    digest: 1d4319a0dc03ca02241bec2292398d00a7ac9a341c2dc61911523467ff0f1738
+    digest: 96bfb4e856ec9c09cc9980fbfacc29df5b7df8b866387b4bbb4214423afcb42b
     name: tinyfilemanager
     type: application
     urls:
@@ -24,7 +24,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.4.3
-    created: "2024-02-27T17:08:57.341228-05:00"
+    created: "2024-02-27T17:17:44.596732-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -62,4 +62,4 @@ entries:
     urls:
     - weppa-cloud/wordpress-19.2.6.tgz
     version: 19.2.6
-generated: "2024-02-27T17:08:57.331104-05:00"
+generated: "2024-02-27T17:17:44.584847-05:00"
