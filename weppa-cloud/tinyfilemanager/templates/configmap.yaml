@@ -5,4 +5,4 @@ metadata:
 data:
   config.php: |
     <?php
-   $use_auth = false; ?>
+    $use_auth = false; ?>
