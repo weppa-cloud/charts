@@ -1,10 +1,18 @@
 questions:
-  - variable: ingress.info  
-    label: "Ingress Domain Information"
-    description: "Ingress will be automatically enabled with the hostname '{{ .Release.Name }}.weppak8s.cloud'. This domain is configured based on the release name of your Helm deployment."
-    type: "info"
+
+  - variable: ingress.enabled
+    description: "Do you want to enable Ingress to expose your WordPress site?"
+    type: boolean
+    label: Enable Ingress
+    default: true
     group: "WordPress Configuration"
-  
+
+  - variable: ingress.hostname
+    description: "Enter the domain you wish to use for accessing your WordPress site."
+    type: string
+    label: Domain for WordPress site
+    group: "WordPress Configuration"
+
   - variable: wordpressUsername
     label: "Username"
     description: "Enter the WordPress admin username."
@@ -47,6 +55,7 @@ questions:
     default: 10
     min: 1
     max: 100
+    group: "WordPress Configuration"
 
   - variable: autoscaling.enabled
     label: "Enable Horizontal Pod Autoscaler"
