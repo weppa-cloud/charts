@@ -1,21 +1,10 @@
 questions:
-  - variable: ingress.enabled
-    label: "Enable Ingress"
-    description: "Ingress is always enabled to allow access to the WordPress installation."
-    type: boolean
-    default: true
-    required: true
-    group: "Ingress Configuration"
-    show_subquestion_if: true
-    subquestions:
-      - variable: ingress.hostname
-        label: "Hostname"
-        description: "Enter the hostname for the ingress. The default is to use 'release.weppak8s.cloud'."
-        type: string
-        default: "{{ .Release.Name }}.weppak8s.cloud"
-        required: true
-        group: "WordPress Configuration"
-
+  - variable: ingress.info  
+    label: "Ingress Domain Information"
+    description: "Ingress will be automatically enabled with the hostname '{{ .Release.Name }}.weppak8s.cloud'. This domain is configured based on the release name of your Helm deployment."
+    type: "info"
+    group: "WordPress Configuration"
+  
   - variable: wordpressUsername
     label: "Username"
     description: "Enter the WordPress admin username."
@@ -54,19 +43,25 @@ questions:
   - variable: persistence.size
     label: "Persistent Volume Size"
     description: "Specify the size of the persistent volume. Use slider to adjust size between 1Gi and 100Gi."
-    type: string
-    required: true
-    group: "Persistence"
-    render: "slider"
-    sliderMin: 10
-    sliderMax: 100
-    sliderUnit: "Gi"
+    type: int
+    default: 10
+    min: 1
+    max: 100
 
   - variable: autoscaling.enabled
     label: "Enable Horizontal Pod Autoscaler"
     description: "Automatically scale the number of pods based on CPU utilization."
     type: boolean
     required: false
+    group: "Performance"
+
+  - variable: replicaCount
+    label: "Number of Replicas"
+    description: "Specify the number of replicas for the WordPress deployment."
+    type: int
+    default: 1
+    min: 1
+    max: 10
     group: "Performance"
 
   - variable: cache.enabled
