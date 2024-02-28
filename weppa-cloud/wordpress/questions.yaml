@@ -56,14 +56,7 @@ questions:
     min: 1
     max: 100
     group: "WordPress Configuration"
-
-  - variable: autoscaling.enabled
-    label: "Enable Horizontal Pod Autoscaler"
-    description: "Automatically scale the number of pods based on CPU utilization."
-    type: boolean
-    required: false
-    group: "Performance"
-
+  
   - variable: replicaCount
     label: "Number of Replicas"
     description: "Specify the number of replicas for the WordPress deployment."
@@ -71,6 +64,13 @@ questions:
     default: 1
     min: 1
     max: 10
+    group: "Performance"
+
+  - variable: autoscaling.enabled
+    label: "Enable Horizontal Pod Autoscaler"
+    description: "Automatically scale the number of pods based on CPU utilization."
+    type: boolean
+    required: false
     group: "Performance"
 
   - variable: cache.enabled
@@ -91,7 +91,7 @@ questions:
     label: "Force HTTPS"
     description: "Redirect all traffic to HTTPS to ensure secure communication."
     type: boolean
-    required: false
+    required: true
     group: "Security and Monitoring"
 
   - variable: logging.enabled

@@ -3,7 +3,7 @@ entries:
   tinyfilemanager:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-02-28T18:15:36.953905-05:00"
+    created: "2024-02-28T18:27:32.101967-05:00"
     description: A Helm chart for Kubernetes to deploy TinyFileManager
     digest: 40d41166d5b821247bb3b9177d67c3c3da3a1ad9f7e9b9da1191f5c645fed907
     name: tinyfilemanager
@@ -24,7 +24,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.4.3
-    created: "2024-02-28T18:15:36.962592-05:00"
+    created: "2024-02-28T18:27:32.111282-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -42,7 +42,7 @@ entries:
     description: WordPress is the world's most popular blogging and content management
       platform. Powerful yet simple, everyone from students to global corporations
       use it to build beautiful, functional websites.
-    digest: ac68171e09ffc4f4560d9ef3cbde092ce90032baf0b0bcc0408b729b22f62c49
+    digest: 15ed58be98c7e6a0e0af4580ae71a3dbda8091029d511b434c7c8029c0453bcd
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
     keywords:
@@ -62,4 +62,4 @@ entries:
     urls:
     - weppa-cloud/wordpress-19.2.6.tgz
     version: 19.2.6
-generated: "2024-02-28T18:15:36.951029-05:00"
+generated: "2024-02-28T18:27:32.100649-05:00"
