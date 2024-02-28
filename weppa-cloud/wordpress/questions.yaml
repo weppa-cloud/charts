@@ -1,71 +1,98 @@
 questions:
-  - variable: wordpressBlogName
-    label: "Nombre del Blog"
-    description: "Introduce el nombre de tu blog WordPress."
-    type: string
-    required: true
-    default: "Mi Blog WordPress"
-    group: "Configuración de WordPress"
-
-  - variable: wordpressUsername
-    label: "Usuario de WordPress"
-    description: "El nombre de usuario para acceder a tu WordPress."
-    type: string
-    required: true
-    default: "admin"
-    group: "Configuración de WordPress"
-
-  - variable: wordpressPassword
-    label: "Contraseña de WordPress"
-    description: "La contraseña para el usuario de WordPress."
-    type: password
-    required: true
-    group: "Configuración de WordPress"
-
-  - variable: wordpressEmail
-    label: "Email del Administrador de WordPress"
-    description: "Email del administrador de WordPress."
-    type: string
-    required: true
-    group: "Configuración de WordPress"
-
-  - variable: ingress.hostname
-    label: "Hostname del Ingress"
-    description: "El hostname para acceder a tu WordPress."
-    type: string
-    required: true
-    group: "Configuración de Ingress"
-
-  - variable: autoscaling.enabled
-    label: "Habilitar Autoescalado"
-    description: "Habilita el autoescalado para la instancia de WordPress."
+  - variable: ingress.enabled
+    label: "Enable Ingress"
+    description: "Ingress is always enabled to allow access to the WordPress installation."
     type: boolean
-    required: false
-    default: false
-    group: "Configuración de Autoescalado"
+    default: true
+    required: true
+    group: "Ingress Configuration"
     show_subquestion_if: true
     subquestions:
-      - variable: autoscaling.minReplicas
-        label: "Mínimo de Réplicas"
-        description: "Número mínimo de réplicas cuando el autoescalado está habilitado."
-        type: int
+      - variable: ingress.hostname
+        label: "Hostname"
+        description: "Enter the hostname for the ingress. The default is to use 'release.weppak8s.cloud'."
+        type: string
+        default: "{{ .Release.Name }}.weppak8s.cloud"
         required: true
-        default: 1
-      - variable: autoscaling.maxReplicas
-        label: "Máximo de Réplicas"
-        description: "Número máximo de réplicas cuando el autoescalado está habilitado."
-        type: int
-        required: true
-        default: 3
-      - variable: autoscaling.targetCPU
-        label: "Uso objetivo de CPU (%)"
-        description: "El porcentaje objetivo de uso de CPU para activar el autoescalado."
-        type: int
-        required: false
-        default: 80
-      - variable: autoscaling.targetMemory
-        label: "Uso objetivo de Memoria (%)"
-        description: "El porcentaje objetivo de uso de memoria para activar el autoescalado."
-        type: int
-        required: false
-        default: 80
+        group: "WordPress Configuration"
+
+  - variable: wordpressUsername
+    label: "Username"
+    description: "Enter the WordPress admin username."
+    type: string
+    required: true
+    group: "WordPress Configuration"
+
+  - variable: wordpressPassword
+    label: "Password"
+    description: "Defaults to a random 10-character alphanumeric string if not set. Enter the WordPress admin password."
+    type: string
+    required: false
+    group: "WordPress Configuration"
+
+  - variable: wordpressEmail
+    label: "Admin email"
+    description: "Enter the WordPress admin email."
+    type: string
+    required: true
+    group: "WordPress Configuration"
+
+  - variable: wordpressBlogName
+    label: "Blog Name"
+    description: "Enter the name of the WordPress blog."
+    type: string
+    required: true
+    group: "WordPress Configuration"
+
+  - variable: wordpressMultisite.enabled
+    label: "Enable WordPress Multisite"
+    description: "Configure WordPress to operate in Multisite mode."
+    type: boolean
+    required: false
+    group: "WordPress Configuration"
+
+  - variable: persistence.size
+    label: "Persistent Volume Size"
+    description: "Specify the size of the persistent volume. Use slider to adjust size between 1Gi and 100Gi."
+    type: string
+    required: true
+    group: "Persistence"
+    render: "slider"
+    sliderMin: 10
+    sliderMax: 100
+    sliderUnit: "Gi"
+
+  - variable: autoscaling.enabled
+    label: "Enable Horizontal Pod Autoscaler"
+    description: "Automatically scale the number of pods based on CPU utilization."
+    type: boolean
+    required: false
+    group: "Performance"
+
+  - variable: cache.enabled
+    label: "Enable Cache"
+    description: "Enable caching to improve WordPress site performance."
+    type: boolean
+    required: false
+    group: "Performance"
+
+  - variable: php.customIni
+    label: "Custom PHP.ini settings"
+    description: "Provide custom PHP.ini settings for WordPress. Example: upload_max_filesize = 64M\npost_max_size = 64M\nmax_execution_time = 300"
+    type: multiline
+    required: false
+    group: "PHP Configuration"
+
+  - variable: security.forceHttps
+    label: "Force HTTPS"
+    description: "Redirect all traffic to HTTPS to ensure secure communication."
+    type: boolean
+    required: false
+    group: "Security and Monitoring"
+
+  - variable: logging.enabled
+    label: "Enable Logging"
+    description: "Enable advanced logging for WordPress with external systems."
+    type: boolean
+    required: false
+    group: "Security and Monitoring"
