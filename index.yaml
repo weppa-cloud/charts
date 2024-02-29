@@ -1,9 +1,50 @@
 apiVersion: v1
 entries:
+  odoo:
+  - annotations:
+      category: CRM
+      images: |
+        - name: odoo
+          image: docker.io/bitnami/odoo:17.0.20240205-debian-12-r4
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 17.0.20240205
+    created: "2024-02-29T15:32:20.02628329-05:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 14.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Odoo is an open source ERP and CRM platform, formerly known as OpenERP,
+      that can connect a wide variety of business operations such as sales, supply
+      chain, finance, and project management.
+    digest: cce27a093ade9f17e177d61981b5cf5793d70e1986c848425add93f00a6c50c3
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/odoo/img/odoo-stack-220x234.png
+    keywords:
+    - odoo
+    - crm
+    - www
+    - http
+    - web
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: odoo
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/odoo
+    urls:
+    - weppa-cloud/odoo-25.5.2.tgz
+    version: 25.5.2
   tinyfilemanager:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-02-28T18:55:04.07212-05:00"
+    created: "2024-02-29T15:32:20.026760312-05:00"
     description: A Helm chart for Kubernetes to deploy TinyFileManager
     digest: 40d41166d5b821247bb3b9177d67c3c3da3a1ad9f7e9b9da1191f5c645fed907
     name: tinyfilemanager
@@ -24,7 +65,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.4.3
-    created: "2024-02-28T18:55:04.079556-05:00"
+    created: "2024-02-29T15:32:20.042838713-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -62,4 +103,4 @@ entries:
     urls:
     - weppa-cloud/wordpress-19.2.6.tgz
     version: 19.2.6
-generated: "2024-02-28T18:55:04.071375-05:00"
+generated: "2024-02-29T15:32:20.009649051-05:00"
