@@ -1,5 +1,42 @@
 apiVersion: v1
 entries:
+  n8n:
+  - annotations:
+      artifacthub.io/changes: "- kind: changed \n  description: \"Apply Security Context
+        to all Pods\"\n  links:\n    - name: \"Related GitHub Issue\"\n        url:
+        https://github.com/8gears/n8n-helm-chart/issues/71         \n"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
+    appVersion: 1.30.0
+    created: "2024-03-11T12:34:21.367630372-05:00"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 18.6.1
+    description: A Kubernetes Helm chart for n8n a free and open fair-code licensed
+      node based Workflow Automation Tool. Easily automate tasks across different
+      services.
+    digest: 5fc807140aa00c6cbff425bf861f4cf67d8a84c1b80c7b03f1b4a07f0768191c
+    home: https://github.com/8gears/n8n-helm-chart
+    icon: https://avatars1.githubusercontent.com/u/45487711?s=200&v=4
+    keywords:
+    - Workflow Automation
+    - Workflow
+    - iPaaS
+    - integration-framework
+    - low-code-plattform
+    - low-code
+    maintainers:
+    - name: Vadim Bauer
+    name: n8n
+    sources:
+    - https://github.com/n8n-io/n8n
+    - https://n8n.io/
+    type: application
+    urls:
+    - weppa-cloud/n8n-0.22.0.tgz
+    version: 0.22.0
   odoo:
   - annotations:
       category: CRM
@@ -9,7 +46,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 17.0.20240205
-    created: "2024-03-02T12:40:15.131415096-05:00"
+    created: "2024-03-11T12:34:21.38489373-05:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -44,7 +81,7 @@ entries:
   tinyfilemanager:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-03-02T12:40:15.131806049-05:00"
+    created: "2024-03-11T12:34:21.385641758-05:00"
     description: A Helm chart for Kubernetes to deploy TinyFileManager
     digest: 40d41166d5b821247bb3b9177d67c3c3da3a1ad9f7e9b9da1191f5c645fed907
     name: tinyfilemanager
@@ -65,7 +102,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.4.3
-    created: "2024-03-02T12:40:15.14825778-05:00"
+    created: "2024-03-11T12:34:21.404192832-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -103,4 +140,4 @@ entries:
     urls:
     - weppa-cloud/wordpress-19.2.6.tgz
     version: 19.2.6
-generated: "2024-03-02T12:40:15.119167419-05:00"
+generated: "2024-03-11T12:34:21.345089201-05:00"
