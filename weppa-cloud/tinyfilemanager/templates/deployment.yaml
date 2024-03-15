@@ -16,15 +16,17 @@ spec:
         - name: tinyfilemanager
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           volumeMounts:
-            - name: config-volume
-              mountPath: /var/www/html/config.php
-              subPath: config.php
+            mountPath: /var/www/html/data
+            # subPath: config.php
       volumes:
-        - name: config-volume
-          configMap:
-            name: tinyfilemanager-config
-        - name: storage-volume
+        - name: pvc-5a9f01f3-477a-4c15-99a7-de7ad6ac1ac6
           persistentVolumeClaim:
-            claimName: {{ .Values.pvc.name }}
+            claimName: n8n
+        # - name: config-volume
+        #   configMap:
+        #     name: tinyfilemanager-config
+        # - name: storage-volume
+        #   persistentVolumeClaim:
+        #     claimName: {{ .Values.pvc.name }}
 
             
