@@ -18,10 +18,10 @@ spec:
           volumeMounts:
             mountPath: /var/www/html/data
             # subPath: config.php
-      volumes:
-        - name: pvc-5a9f01f3-477a-4c15-99a7-de7ad6ac1ac6
-          persistentVolumeClaim:
-            claimName: n8n
+          volumes:
+            - name: {{ .Values.volumes.name }}
+              persistentVolumeClaim:
+                claimName: n8n
         # - name: config-volume
         #   configMap:
         #     name: tinyfilemanager-config

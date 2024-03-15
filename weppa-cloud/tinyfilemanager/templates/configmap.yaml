@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: tinyfilemanager-config2
+  name: tinyfilemanager-config3
 data:
   config.php: |
     <?php

@@ -11,3 +11,6 @@ service:
 
 pvc:
   name: tinyfilemanager-pvc
+
+volumes:
+  name: pvc-5a9f01f3-477a-4c15-99a7-de7ad6ac1ac6
