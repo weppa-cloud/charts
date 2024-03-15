@@ -17,6 +17,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           volumeMounts:
             mountPath: /var/www/html/data
+            name: {{ .Values.volumes.name }}
             # subPath: config.php
           volumes:
             - name: {{ .Values.volumes.name }}
