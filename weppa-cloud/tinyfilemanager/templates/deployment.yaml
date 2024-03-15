@@ -16,13 +16,13 @@ spec:
         - name: tinyfilemanager
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           volumeMounts:
-            mountPath: /var/www/html/data
-            name: {{ .Values.volumes.name }}
+            - mountPath: /var/www/html/data
+              name: {{ .Values.volumes.name }}
             # subPath: config.php
-          volumes:
-            - name: {{ .Values.volumes.name }}
-              persistentVolumeClaim:
-                claimName: n8n
+      volumes:
+        - name: {{ .Values.volumes.name }}
+          persistentVolumeClaim:
+            claimName: n8n
         # - name: config-volume
         #   configMap:
         #     name: tinyfilemanager-config

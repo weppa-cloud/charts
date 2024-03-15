@@ -8,7 +8,7 @@ entries:
       artifacthub.io/prerelease: "true"
     apiVersion: v2
     appVersion: 1.30.0
-    created: "2024-03-15T10:35:01.253883523-05:00"
+    created: "2024-03-15T10:48:24.532719364-05:00"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -46,7 +46,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 17.0.20240205
-    created: "2024-03-15T10:35:01.265937109-05:00"
+    created: "2024-03-15T10:48:24.544918943-05:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -81,9 +81,9 @@ entries:
   tinyfilemanager:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-03-15T10:35:01.266550354-05:00"
+    created: "2024-03-15T10:48:24.545306575-05:00"
     description: A Helm chart for Kubernetes to deploy TinyFileManager
-    digest: 5d86948b8f9b87beb0236f3626f95abedaad30689eb178b6f9b0ae2eff819bc4
+    digest: facb49ea62f712505707e65b671a3e2fa9636df1fa8e18b2d360b083f10f81b2
     name: tinyfilemanager
     type: application
     urls:
@@ -102,7 +102,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.4.3
-    created: "2024-03-15T10:35:01.283066608-05:00"
+    created: "2024-03-15T10:48:24.562132265-05:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -140,4 +140,4 @@ entries:
     urls:
     - weppa-cloud/wordpress-19.2.6.tgz
     version: 19.2.6
-generated: "2024-03-15T10:35:01.214736776-05:00"
+generated: "2024-03-15T10:48:24.511960751-05:00"
